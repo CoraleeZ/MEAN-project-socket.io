@@ -1,0 +1,31 @@
+<body>
+    <div class="world">
+        <div *ngFor='let x of worldnew | async' class='row'>
+            <div *ngFor='let y of x ' class="{{y}}"></div>
+        </div>
+    </div>
+    <div id="result">
+        <h3>You score:{{display.score}}</h3>
+        <div id='display'>
+            <p *ngFor='let x of display.pokemonname | async'>{{x}}</p>
+        </div>
+        <div *ngFor='let y of display.imgAndTitle | async'>
+            <p>Lastest Result:</p>
+            <p>{{y.title}}</p>
+            <img src="{{y.url}}">
+            <hr>
+        </div>
+        <div>
+            <p>Top 5 player:</p>
+        </div>
+    </div>
+    <!-- <div class="line-breaker" *ngFor='let h of gamersposition| async'>
+        {{h}}
+    </div> -->
+
+    <img *ngFor='let h of gamersposition | async' class='pokemon' src='{{h.img}}' [ngStyle]="{         
+        'top.px': h.top,
+        'left.px': h.left
+      }">
+
+</body>
