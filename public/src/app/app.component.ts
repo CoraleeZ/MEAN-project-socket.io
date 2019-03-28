@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
 import { HttpService } from './http.service'
-import { Observable } from 'rxjs';
+import { GamepageComponent } from './gamepage/gamepage.component';
+import { DataService } from './data.service';
 
 
 @Component({
@@ -9,14 +10,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'public';
-  greeting:any;
-  newplayer:Observable<string>;
+  @ViewChild(GamepageComponent) gamepage;
 
-  constructor(private _httpservice: HttpService) { }
+  title = 'Poke Smash';
+  user;
+  greeting:any;
+
+  constructor(private _httpservice: HttpService, private _data: DataService) { }
 
   ngOnInit() {
-    // this.newplayer=this._httpservice.newplayer;
+    this._data.userCurrent.subscribe(user => this.user = user)
+
     // this._httpservice.getMessage()
     // .subscribe(data => {
     //   console.log(data);
@@ -25,5 +29,10 @@ export class AppComponent implements OnInit {
     //   this._httpservice.sendMessage(msg);
     // });
   }
+
+  // ngAfterViewInit() {
+  //   this.user = this.gamepage.pokemon.user
+  //   console.log(this.gamepage);
+  // }
 
 }

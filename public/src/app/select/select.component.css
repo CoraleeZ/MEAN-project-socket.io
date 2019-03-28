@@ -1,3 +1,38 @@
 button {
-    height: 50px;
+    height: 100px;
+    width: 125px;
+    padding: 5px;
+    margin: 10px;
+    /* background-color: red;  */
 }
+
+#usernameInputContain {
+    width: 50%;
+    text-align: left;
+}
+
+#usernameInput {
+    margin-left: 50%;
+    background-color: rgba(black, 0.5) !important;
+}
+
+#wrapper{
+    text-align: center;
+    background-image: url(../../assets/images/ditto.png)
+}
+
+#menu{
+    text-align: center;
+    background-color: red;
+}
+
+.danger{
+    background-color: rgba(black, 0.5);
+    font-weight: bold;
+    color: red;
+}
+
+img{
+    margin-right: 10px;
+}
+

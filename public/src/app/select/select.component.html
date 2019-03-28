@@ -1,6 +1,68 @@
-<h3>Choose your character: </h3>
+<head>
+    <!-- Compiled and minified CSS
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<button (click)='play("teddiursa")'><img src="../../assets/images/Teddiursa/walk-cycle.gif" alt="Teddiursa"></button>
-<button (click)='play("squirtle")'><img src="../../assets/images/Squirtle/walk-cycle.gif" alt="Squirlte"></button>
-<button (click)='play("pikachu")'><img src="../../assets/images/Pikachu/walk-cycle.gif" alt="Pikachu"></button>
-<button (click)='play("meowth")'><img src="../../assets/images/Meowth/walk-cycle.gif" alt="Meowth"></button>
+    Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<h3>Choose your character: </h3>
+<div id='wrapper'>
+    <form [formGroup]="userForm" (ngSubmit)='play()'>
+        <div id='usernameInputContain'>
+            <div *ngIf="userForm.status =='INVALID' && (userForm.touched || userForm.dirty)"
+            class="danger">
+            <p *ngIf="userForm.controls.username.invalid && (userForm.controls.username.touched || userForm.controls.username.dirty)">Username is invalid, must be over 1 character long.</p>
+            <p *ngIf="userForm.controls.character.invalid && (userForm.controls.character.touched || userForm.controls.character.dirty)">Must choose a character!</p>
+            </div>
+            <label id='usernameInput' for="username">Username:</label>
+            <input id='usernameInput' formControlName="username" class="form-control" required minlength="2" type="text" name='username'>
+        </div>
+        <!-- <div id='menu'>
+            <input type="radio" formControlName="character" name="character" value='teddiursa' (click)='character = "teddiursa"' checked>Teddiursa<img src="../../assets/images/Teddiursa/walk-cycle.gif" alt="Teddiursa">
+            <input type='radio' formControlName="character" name="character"  value='squirtle' (click)='character = "squirtle"'>Squirtle<img src="../../assets/images/Squirtle/walk-cycle.gif" alt="Squirlte">
+            <input type='radio' formControlName="character" name="character"  value='pikachu' (click)='character = "pikachu"'>Pikachu<img src="../../assets/images/Pikachu/walk-cycle.gif" alt="Pikachu">
+            <input type='radio' formControlName="character" name="character"  value='meowth' (click)='character = "meowth"'>Meowth<img src="../../assets/images/Meowth/walk-cycle.gif" alt="Meowth">
+        </div> -->
+
+        <div id="menu" class="input-group">
+            <div class="input-group-prepend">
+                  <div class="input-group-text">
+                        <input type="radio" formControlName="character" name="character" value='teddiursa' (click)='character = "teddiursa"' checked>
+                    </div>
+            </div>
+                <!-- <span>Teddiursa</span> -->
+                <img src="../../assets/images/Teddiursa/walk-cycle.gif" alt="Teddiursa">
+
+            <div class="input-group-prepend">
+                    <div class="input-group-text">
+                            <input type='radio' formControlName="character" name="character"  value='squirtle' (click)='character = "squirtle"'>
+                        </div>
+                </div>
+                    <!-- <span>Squirtle</span> -->
+                    <img src="../../assets/images/Squirtle/walk-cycle.gif" alt="Squirtle">
+
+            <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type='radio' formControlName="character" name="character"  value='pikachu' (click)='character = "pikachu"'>
+
+                        </div>
+                </div>
+                    <!-- <span>Pikachu</span> -->
+                    <img src="../../assets/images/Pikachu/walk-cycle.gif" alt="Pikachu">
+
+            <div class="input-group-prepend">
+                    <div class="input-group-text">
+                            <input type='radio' formControlName="character" name="character"  value='meowth' (click)='character = "meowth"'>
+                        </div>
+                </div>
+                    <!-- <span>Meowth</span> -->
+                    <img src="../../assets/images/Meowth/walk-cycle.gif" alt="Meowth">
+        </div>
+
+        <button class="waves-effect waves-light btn-large" type="submit" [disabled]="!userForm.valid">Play!</button>
+    </form>
+</div>
