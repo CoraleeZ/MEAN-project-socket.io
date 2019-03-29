@@ -1,0 +1,218 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
+    position: absolute;
+}
+
+.world {
+    background-image: url(../../assets/images/purple-cloud.gif);
+    background-size: 70%;
+    display: inline-block;
+}
+
+.row {
+    width: 930px;
+    /* opacity: 0.1; */
+    /* background-color: rgb(118, 216, 223); */
+}
+
+.land {
+    display: inline-block;
+    /* background-color: rgb(138, 88, 14); */
+    height: 30px;
+    width: 30px;
+    background-image: url(../../assets/images/cloud-platform-sq.png);
+    background-size: cover;
+    /* opacity: 0.9; */
+}
+
+.pokemon {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    position: absolute;
+}
+
+.board {
+    display: inline-block;
+    opacity: 0.1;
+    height: 30px;
+    width: 30px;
+}
+
+.box {
+    display: inline-block;
+    opacity: 0.9;
+    height: 30px;
+    width: 30px;
+    background-image: url(../../assets/images/question-block.gif);
+    background-size: cover;
+}
+
+.checked {
+    display: inline-block;
+    opacity: 0.9;
+    height: 30px;
+    width: 30px;
+    background-color: rgb(9, 255, 0);
+}
+
+#result {
+    display: inline-block;
+    width: 265px;
+    height: 390px;
+    margin-left: 30px;
+    border: 1px solid black;
+    vertical-align: top;
+    text-align: center;
+    /* overflow-y: scroll; */
+}
+
+#display {
+    height: 38px;
+    width: 260px;
+    background: rgba(233, 24, 17, 0.3);
+}
+
+#showpn {
+    margin-top: 17px;
+    font-weight: 700;
+    font-size: 24px;
+    display: inline-block;
+    color: rgba(27, 46, 150, 0.808);
+}
+
+.score {
+    font-family: cursive;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+#result img {
+    width: 190px;
+    max-height: 120px;
+    margin-top: 5px;
+}
+
+#result div {
+    width: 265px;
+    text-align: center;
+}
+
+.topfive {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 14px;
+    font-style: italic;
+    color: rgb(90, 21, 69, 0.7);
+}
+
+.a {
+    background-image: url(../../assets/images/blocks/a.gif);
+}
+
+.b {
+    background-image: url(../../assets/images/blocks/b.gif);
+}
+
+.c {
+    background-image: url(../../assets/images/blocks/c.gif);
+}
+
+.d {
+    background-image: url(../../assets/images/blocks/d.gif);
+}
+
+.e {
+    background-image: url(../../assets/images/blocks/e.gif);
+}
+
+.f {
+    background-image: url(../../assets/images/blocks/f.gif);
+}
+
+.g {
+    background-image: url(../../assets/images/blocks/g.gif);
+}
+
+.h {
+    background-image: url(../../assets/images/blocks/h.gif);
+}
+
+.i {
+    background-image: url(../../assets/images/blocks/i.gif);
+}
+
+.j {
+    background-image: url(../../assets/images/blocks/j.gif);
+}
+
+.k {
+    background-image: url(../../assets/images/blocks/k.gif);
+}
+
+.l {
+    background-image: url(../../assets/images/blocks/l.gif);
+}
+
+.m {
+    background-image: url(../../assets/images/blocks/m.gif);
+}
+
+.n {
+    background-image: url(../../assets/images/blocks/n.gif);
+}
+
+.o {
+    background-image: url(../../assets/images/blocks/o.gif);
+}
+
+.p {
+    background-image: url(../../assets/images/blocks/p.gif);
+}
+
+.q {
+    background-image: url(../../assets/images/blocks/q.gif);
+}
+
+.r {
+    background-image: url(../../assets/images/blocks/r.gif);
+}
+
+.s {
+    background-image: url(../../assets/images/blocks/s.gif);
+}
+
+.t {
+    background-image: url(../../assets/images/blocks/t.gif);
+}
+
+.u {
+    background-image: url(../../assets/images/blocks/u.gif);
+}
+
+.v {
+    background-image: url(../../assets/images/blocks/v.gif);
+}
+
+.w {
+    background-image: url(../../assets/images/blocks/w.gif);
+}
+
+.x {
+    background-image: url(../../assets/images/blocks/x.gif);
+}
+
+.y {
+    background-image: url(../../assets/images/blocks/y.gif);
+}
+
+.z {
+    background-image: url(../../assets/images/blocks/z.gif);
+}
+
+.space {
+    background-image: url(../../assets/images/blocks/-.gif);
+}

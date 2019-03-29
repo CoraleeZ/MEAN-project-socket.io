@@ -10,7 +10,7 @@ export class DataService {
   constructor() { }
 
   changeUser(user: string) {
-    this.userSource.next(user)
-  }
+    this.userSource.next(user);
+  };
 
 }

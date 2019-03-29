@@ -1,0 +1,25 @@
+<body>
+    <div class="world" [ngStyle]="mapBg.style">
+        <div *ngFor='let x of worldnew | async' class='row'>
+            <div *ngFor='let y of x ' class="{{y}}" [ngStyle]="y == 'land' && {'background': mapBl.style.background}"></div>
+        </div>
+    </div>
+    <div id="result">
+        <p class='score'>Score:{{score}}</p>
+        <div id='display'>
+            <span id='showpn' *ngFor='let x of displaypokemonname'>{{x}}</span>
+        </div>
+        <div *ngFor='let y of displayimgAndTitle'>
+            <p class='score'>You just catch a sprite!</p>
+            <img [src]="y.url">
+            <hr>
+        </div>
+        <p class='score'>Top 5 hunters:</p>
+        <p class='topfive' *ngFor='let s of topfive | async'>{{s.name}} ---- {{s.score}}</p>
+    </div>
+    <img *ngFor='let h of gamersposition | async' class='pokemon' src='{{h.img}}' [ngStyle]="{         
+        'top.px': h.top,
+        'left.px': h.left
+      }">
+
+</body>
