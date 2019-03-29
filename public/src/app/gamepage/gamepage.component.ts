@@ -95,7 +95,7 @@ export class GamepageComponent implements OnInit {
       this.pokemon.char = params['pokemon'];
       //socket
       this._gamepage.sendImNew({playername:params['user']});
-      this._data.changeUser('You => '+params['user']);
+      this._data.changeUser('Hunter ⟿ '+params['user']);
     });
      // this.generateBox();
     this._gamepage.world.subscribe(data=>{

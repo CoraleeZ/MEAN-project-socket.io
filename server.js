@@ -150,7 +150,7 @@ io.on('connection', socket => {
     socket.on('ImNew', data => {
         gamer[socket.id] = data.playername;
         // console.log('userscore:', userscore, "gamer:", gamer)
-        msg = "Sprite hunter " + gamer[socket.id] + ' just joined us! Welcome!';
+        msg = "Pokémon hunter " + gamer[socket.id] + ' just joined us! Welcome!';
         socket.broadcast.emit('Newplayer', msg);
     });
 
@@ -232,8 +232,8 @@ io.on('connection', socket => {
         io.emit('Worldnew', worldnew);
         io.emit('Display', display);
         io.emit('Boxinfo', boxinfo);
-        socket.emit('Dis_pokemonname', display.pokemonname);
-        socket.emit('Dis_imgAndTitle', display.imgAndTitle);
+        io.emit('Dis_pokemonname', display.pokemonname);
+        io.emit('Dis_imgAndTitle', display.imgAndTitle);
     });
 
     socket.on('disconnect', data => {

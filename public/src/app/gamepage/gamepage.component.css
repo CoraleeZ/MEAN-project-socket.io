@@ -70,13 +70,14 @@
 }
 
 #display {
-    height: 38px;
+    padding: 0;
+    height: 48px;
     width: 260px;
     background: rgba(233, 24, 17, 0.3);
 }
 
 #showpn {
-    margin-top: 17px;
+    margin-top: 7px;
     font-weight: 700;
     font-size: 24px;
     display: inline-block;
@@ -107,6 +108,15 @@
     font-size: 20px;
     font-style: italic;
     color: rgb(90, 21, 69, 0.7);
+}
+
+#guess {
+    display: inline-block;
+    margin-top: 6px;
+    font-weight: 600;
+    font-size: 11px;
+    color: rgba(170, 21, 10, 0.52);
+    font-family: sans-serif;
 }
 
 .a {

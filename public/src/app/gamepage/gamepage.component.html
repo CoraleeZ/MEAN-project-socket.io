@@ -7,11 +7,15 @@
     <div id="result">
         <p class='score'>Score:{{score}}</p>
         <div id='display'>
+            <p id="guess">Who's That Pokémon?</p>
+            <br>
             <span id='showpn' *ngFor='let x of displaypokemonname| async'>{{x}}</span>
         </div>
         <div *ngFor='let y of displayimgAndTitle| async'>
-            <p class='score'>You just catch a sprite!</p>
+            <hr>
+            <p class='score'>You just caught a pokémon!</p>
             <img src="{{y.url}}">
+            <hr>
         </div>
         <p class='score'>Best hunter:</p>
         <p class='topfive' *ngFor='let s of topfive | async'>{{s.name}} ---- {{s.score}}</p>
