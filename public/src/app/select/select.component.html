@@ -29,40 +29,39 @@
         </div> -->
 
         <div id="menu" class="input-group">
-            <div class="input-group-prepend">
+            <div class="input-manip">
                   <div class="input-group-text">
                         <input type="radio" formControlName="character" name="character" value='teddiursa' (click)='character = "teddiursa"' checked>
+                        <label for="character"><img src="../../assets/images/Teddiursa/walk-cycle.gif" alt="Teddiursa"></label>
                     </div>
             </div>
                 <!-- <span>Teddiursa</span> -->
-                <img src="../../assets/images/Teddiursa/walk-cycle.gif" alt="Teddiursa">
 
-            <div class="input-group-prepend">
+            <div class="input-manip">
                     <div class="input-group-text">
                             <input type='radio' formControlName="character" name="character"  value='squirtle' (click)='character = "squirtle"'>
+                            <label for="character"> <img src="../../assets/images/Squirtle/walk-cycle.gif" alt="Squirtle"></label>
                         </div>
                 </div>
                     <!-- <span>Squirtle</span> -->
-                    <img src="../../assets/images/Squirtle/walk-cycle.gif" alt="Squirtle">
 
-            <div class="input-group-prepend">
+            <div class="input-manip">
                     <div class="input-group-text">
                         <input type='radio' formControlName="character" name="character"  value='pikachu' (click)='character = "pikachu"'>
-
+                        <label for="character"><img src="../../assets/images/Pikachu/walk-cycle.gif" alt="Pikachu"></label>
                         </div>
                 </div>
                     <!-- <span>Pikachu</span> -->
-                    <img src="../../assets/images/Pikachu/walk-cycle.gif" alt="Pikachu">
 
-            <div class="input-group-prepend">
+            <div class="input-manip">
                     <div class="input-group-text">
                             <input type='radio' formControlName="character" name="character"  value='meowth' (click)='character = "meowth"'>
+                            <label for="character"><img src="../../assets/images/Meowth/walk-cycle.gif" alt="Meowth"></label>
                         </div>
                 </div>
                     <!-- <span>Meowth</span> -->
-                    <img src="../../assets/images/Meowth/walk-cycle.gif" alt="Meowth">
         </div>
 
-        <button class="waves-effect waves-light btn-large" type="submit" [disabled]="!userForm.valid">Play!</button>
+        <button class="btn btn-danger" type="submit" [disabled]="!userForm.valid">Play!</button>
     </form>
 </div>
