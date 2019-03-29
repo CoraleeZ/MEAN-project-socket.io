@@ -14,15 +14,13 @@ export class SelectComponent implements OnInit {
   info ={
     username : '',
     character : ''
-  }
-  
+  };
   userForm:FormGroup;
-
   
   play(){
     console.log(this.userForm.get('username'));
     this._router.navigate(['/game/', {pokemon: this.userForm.get('character').value, user: this.userForm.get('username').value}]);
-  }
+  };
 
   ngOnInit() {
     this.userForm = new FormGroup({
@@ -33,7 +31,7 @@ export class SelectComponent implements OnInit {
       'character': new FormControl(this.info.character, Validators.required)
     });
     console.log(this.userForm);
-  
-  }
-  }
+  };
+
+}
 

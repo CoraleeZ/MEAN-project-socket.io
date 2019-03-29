@@ -61,41 +61,52 @@ body {
 
 #result {
     display: inline-block;
-    width: 240px;
+    width: 265px;
     height: 390px;
     margin-left: 30px;
     border: 1px solid black;
     vertical-align: top;
     text-align: center;
-    overflow-y: scroll;
-}
-
-#result p {
-    display: inline-block;
-    font-family: sans-serif;
-    font-weight: 600;
-    font-size: 17px;
+    /* overflow-y: scroll; */
 }
 
 #display {
-    height: 50px;
-    width: 242px;
+    height: 38px;
+    width: 260px;
+    background: rgba(233, 24, 17, 0.3);
+}
+
+#showpn {
+    margin-top: 17px;
+    font-weight: 700;
+    font-size: 24px;
     display: inline-block;
+    color: rgba(27, 46, 150, 0.808);
+}
+
+.score {
     font-family: cursive;
     font-weight: 600;
-    font-size: 22px;
-    background: rgba(185, 21, 15, 0.5);
+    font-size: 13px;
 }
 
 #result img {
-    width: 200px;
-    margin-top: 13px;
+    width: 190px;
+    max-height: 120px;
+    margin-top: 5px;
 }
 
 #result div {
-    width: 220px;
-    margin: 20px 0px;
+    width: 265px;
     text-align: center;
+}
+
+.topfive {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 14px;
+    font-style: italic;
+    color: rgb(90, 21, 69, 0.7);
 }
 
 .a {

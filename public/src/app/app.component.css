@@ -1,3 +1,19 @@
-/* #bg-wrap{
-    background-image: url(../assets/images/ditto.png)
-} */
+h1 {
+    display: inline-block;
+    font-family: cursive;
+}
+
+h3 {
+    font-family: cursive;
+    color: rgb(233, 138, 60);
+}
+
+#username {
+    display: inline-block;
+    font-size: 20px;
+    font-family: cursive;
+    font-weight: 600;
+    vertical-align: bottom;
+    margin: 30px 20px;
+    color: rgb(248, 162, 152, 0.5);
+}
