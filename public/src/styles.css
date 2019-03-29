@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
 img {
     height: 100%;
 }
 
-html{
-    background: skyblue;
+html {
+    background: rgba(241, 6, 143, 0.06);
 }

@@ -13,6 +13,8 @@ export class HttpService {
   newplayer=this._socket.fromEvent<string>("Newplayer");
   gamersposition=this._socket.fromEvent<string[]>("Move");
   topfive=this._socket.fromEvent<any[]>('TopFive');
+  displaypokemonname=this._socket.fromEvent<string[]>('Dis_pokemonname');
+  displayimgAndTitle=this._socket.fromEvent<any[]>('Dis_imgAndTitle')
 
   constructor(private _socket: Socket) { }
   
@@ -42,6 +44,10 @@ export class HttpService {
 
   sendChangeCount(msg:any){
     this._socket.emit('ChangeCount',msg);
+  }
+
+  sendReConnect(){
+    this._socket.emit('recon')
   }
            
 }

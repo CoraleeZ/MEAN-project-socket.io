@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
-const http = require('http').Server(app);
 const port = 8000;
 app.use(express.static(__dirname + '/public/dist/public'));
-const server = http.listen(port, () => console.log(`Server is running on port ${port}`));
+const server = app.listen(port, () => console.log(`Server is running on port ${port}`));
 const io = require('socket.io')(server);
 
 ////
@@ -11,8 +10,9 @@ app.all('*', (req, res) => {
     res.sendFile(__dirname + '/public/dist/public/index.html');
 });
 /////////以下是变量///////
+let userscore = {};
+let Tops = [];
 let gamer = {};
-let score = {};
 let world = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -63,11 +63,8 @@ let dict = {
 };
 let worldnew = [];
 let boxinfo = {
-    //统一
     pokemonname: '',
-    //统一
     img: '',
-    //统一
     position: [],
 };
 let display = {
@@ -84,12 +81,13 @@ let spiritesInfo = ["pikachu-zaps", "squirtle-watergun", "charmander-blaze", "bu
 ///////刚连接时候构造世界///
 generateBox();
 drawworld();
+console.log('restart server!')
 
 function generateBox() {
     boxinfo.position = [];
     let idx = Math.floor(Math.random() * spiritesInfo.length);
     boxinfo.pokemonname = spiritesInfo[idx];
-    boxinfo.img = './assets/images/inbox/' + spiritesInfo[idx] + '.gif';
+    boxinfo.img = 'assets/images/inbox/' + spiritesInfo[idx] + '.gif';
     let letter = boxinfo.pokemonname.split('');
     for (let k = 0; k < letter.length; k++) {
         let point = { x: null, y: null, value: '' };
@@ -138,15 +136,21 @@ function cleanOldPosition() {
 
 io.on('connection', socket => {
 
-    socket.emit('World', world);
-    socket.emit('Worldnew', worldnew);
-    socket.emit('Display', display);
-    socket.emit('Boxinfo', boxinfo);
-    /////////////////////
+    socket.on('recon', data => {
+        socket.emit('World', world);
+        socket.emit('Worldnew', worldnew);
+        socket.emit('Display', display);
+        socket.emit('Boxinfo', boxinfo);
+        socket.emit('TopFive', Tops);
+        socket.emit('Dis_pokemonname', display.pokemonname);
+        socket.emit('Dis_imgAndTitle', display.imgAndTitle);
+        console.log('connect!@@')
+    });
+
     socket.on('ImNew', data => {
         gamer[socket.id] = data.playername;
-        // console.log(gamer);
-        msg = "Sprite hunter" + gamer[socket.id] + ' just joined team! Welcome!';
+        // console.log('userscore:', userscore, "gamer:", gamer)
+        msg = "Sprite hunter " + gamer[socket.id] + ' just joined us! Welcome!';
         socket.broadcast.emit('Newplayer', msg);
     });
 
@@ -157,7 +161,6 @@ io.on('connection', socket => {
             top: data.style.top
         };
         gamersposition[socket.id] = str;
-        // console.log('gamersposition', Object.values(gamersposition));
         io.emit('Move', Object.values(gamersposition));
     });
 
@@ -167,37 +170,46 @@ io.on('connection', socket => {
     });
 
     socket.on('ChangeScore', data => {
-        score[socket.id] = data;
-        let temp = score;
+        userscore[socket.id] = data.sco;
+        // console.log('userscore after change:', userscore)
+        let temp = {...userscore };
+        // console.log('temp:&&&&&&&&&', temp)
         let forsort = [];
         for (let key in temp) {
-            // temp[score[key]] = key;
+            // temp[userscore[key]] = key;
             forsort.push(parseInt(temp[key]));
         }
         forsort.sort(function(a, b) { return b - a });
-        if (forsort.length > 5) {
-            forsort.length = 5;
+        if (forsort.length > 1) {
+            forsort.length = 1;
         }
-        let Tops = [];
+        // console.log('forsort', forsort);
+        Tops = [];
         let eachOfTop = {};
-        for (let idx = 0; idx < forsort.length; idx++) {
+        for (let i = 0; i < forsort.length; i++) {
             for (let k in temp) {
-                if (temp[k] == forsort[idx]) {
+                if (temp[k] == forsort[i]) {
                     eachOfTop['name'] = gamer[k];
-                    eachOfTop['score'] = forsort[idx];
+                    eachOfTop['score'] = forsort[i];
                     Tops.push(eachOfTop);
+                    // console.log('gammer:', gamer)
+                    // console.log('before delete', temp, 'key is', k, 'name:', gamer[k], "eachtop:", eachOfTop)
                     delete temp[k];
+                    // console.log('after delete', temp)
+                    break;
                 }
             }
         }
-        console.log('top!!!!!', Tops)
+        // console.log('top!!!!!', Tops)
         io.emit('TopFive', Tops);
     });
 
     socket.on('DisPokemonname', data => {
         display.pokemonname.splice(data.index, 1, data.value);
         // console.log('display.imgAndTitle:', display.imgAndTitle)
-        io.emit('Display', display);
+        // io.emit('Display', display);
+        io.emit('Dis_pokemonname', display.pokemonname);
+        io.emit('Dis_imgAndTitle', display.imgAndTitle);
     });
 
     socket.on('ChangeCount', data => {
@@ -207,12 +219,12 @@ io.on('connection', socket => {
     socket.on('CompareCount', data => {
         console.log('^^^^^^^count:', count);
         if (count == boxinfo.position.length) {
-            console.log('changeworld!!!!!');
             display.pokemonname = [];
             count = 0;
             display.imgAndTitle = [{ title: boxinfo.pokemonname, url: boxinfo.img }]
             cleanOldPosition();
             generateBox();
+            console.log('changeworld!!!!!');
         };
         worldnew = [];
         drawworld();
@@ -220,15 +232,18 @@ io.on('connection', socket => {
         io.emit('Worldnew', worldnew);
         io.emit('Display', display);
         io.emit('Boxinfo', boxinfo);
+        socket.emit('Dis_pokemonname', display.pokemonname);
+        socket.emit('Dis_imgAndTitle', display.imgAndTitle);
     });
 
     socket.on('disconnect', data => {
         msg = "Hunter " + gamer[socket.id] + ' leave the team! Bye...';
         socket.broadcast.emit('Newplayer', msg);
-        delete score[socket.id];
+        delete userscore[socket.id];
         delete gamer[socket.id];
         delete gamersposition[socket.id];
         io.emit('Move', Object.values(gamersposition));
+        console.log('disconnet')
     });
 
 });

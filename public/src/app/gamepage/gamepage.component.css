@@ -1,4 +1,4 @@
-body {
+#wrapper {
     margin: 0px;
     padding: 0px;
     line-height: 0px;
@@ -64,10 +64,9 @@ body {
     width: 265px;
     height: 390px;
     margin-left: 30px;
-    border: 1px solid black;
     vertical-align: top;
     text-align: center;
-    /* overflow-y: scroll; */
+    background: rgba(138, 33, 33, 0.05)
 }
 
 #display {
@@ -91,9 +90,10 @@ body {
 }
 
 #result img {
-    width: 190px;
-    max-height: 120px;
+    width: 230px;
+    max-height: 200px;
     margin-top: 5px;
+    border-radius: 15px;
 }
 
 #result div {
@@ -104,7 +104,7 @@ body {
 .topfive {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 20px;
     font-style: italic;
     color: rgb(90, 21, 69, 0.7);
 }

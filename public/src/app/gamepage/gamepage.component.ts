@@ -66,13 +66,12 @@ export class GamepageComponent implements OnInit {
   worldnew: Observable<any[]>;
   boxinfo:Observable<any>;
   positionOfBoxinfo=[];
-  display:Observable<any>;
+  // display:Observable<any>;
   score=0;
   gamersposition:Observable<string[]>;
-  displaypokemonname=[];
-  displayimgAndTitle=[];
+  displaypokemonname:Observable<string[]>;
+  displayimgAndTitle:Observable<any[]>;
   topfive:Observable<any[]>;
-
   mapBg = {
     style: {
       background: null,
@@ -83,11 +82,14 @@ export class GamepageComponent implements OnInit {
       background: null,
     }
   };
-
     
   constructor(private _gamepage: HttpService,private _route: ActivatedRoute,private _data: DataService) { }
 
   ngOnInit() {
+    this.displaypokemonname=this._gamepage.displaypokemonname;
+    this.displayimgAndTitle=this._gamepage.displayimgAndTitle;
+    ////
+    this._gamepage.sendReConnect();
     this.topfive=this._gamepage.topfive;
     this._route.params.subscribe((params: Params) => {
       this.pokemon.char = params['pokemon'];
@@ -99,7 +101,7 @@ export class GamepageComponent implements OnInit {
     this._gamepage.world.subscribe(data=>{
       this.world=data;
     });
-    this.display=this._gamepage.display;
+    // this.display=this._gamepage.display;
        // this.drawworld();
     this._gamepage.boxinfo.subscribe(data=>{
       this.boxinfo=data;
@@ -123,11 +125,12 @@ export class GamepageComponent implements OnInit {
     }
     this.pokemon.img = './assets/images/'+this.pokemon.char+'/walk-mirror/1.png';
     this.drawPokemon();
-    setInterval(this.gravity, 75); 
-    this.getBg();
+    setInterval(this.gravity, 75);
+    ///12秒自动换地图
+    setInterval(this.getBg, 12000); 
   };
 
-  getBg(){
+  getBg=()=>{
     let possible = [{bgUrl:"url(../../assets/images/purple-cloud.gif) center / 70%",
     blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/mountain-map.png) center / 70%",
     blockUrl:"url(../../assets/images/ground.jpg) center / cover"}, {bgUrl:"url(../../assets/images/forest.png) center / 100%",
@@ -172,7 +175,6 @@ export class GamepageComponent implements OnInit {
       //socket.io
     this._gamepage.sendPosition(this.pokemon);
     this.gamersposition=this._gamepage.gamersposition;
-    // console.log('drawpokemon',this.gamersposition)
   };
 
   @HostListener('document:keydown',['$event'])
@@ -246,17 +248,13 @@ export class GamepageComponent implements OnInit {
           if(this.pokemon.y>0 && this.world[this.pokemon.y-1][this.pokemon.x]==2){
             this.score++;
             //socket.io改变分值
-            this._gamepage.sendChangeScore(this.score);
+            this._gamepage.sendChangeScore({sco:this.score});
             for(let g=0;g<this.boxinfo['position'].length;g++){    
               if(this.boxinfo['position'][g]['x']==this.pokemon.x && this.boxinfo['position'][g]['y']==(this.pokemon.y-1)){
                 this._gamepage.sendDisPokemonname({
                   index:g,
                   value:this.boxinfo['position'][g].value
                 });
-                this._gamepage.display.subscribe(data=>{
-                  this.displaypokemonname=data.pokemonname;
-                });
-                console.log('get a box^^^',this.display) 
                 //socket.io改变world坐标点
                 this._gamepage.sendChangeWorld({
                   x:this.pokemon.x,
@@ -266,10 +264,7 @@ export class GamepageComponent implements OnInit {
                 this.world[this.pokemon.y-1][this.pokemon.x]=3;
                 //socket.io改变count数值
                 this._gamepage.sendChangeCount({}); 
-                this._gamepage.sendCompareCount({});
-                this._gamepage.display.subscribe(data=>{
-                  this.displayimgAndTitle=data.imgAndTitle;
-                });     
+                this._gamepage.sendCompareCount({});    
                 break;
               };
             };      
