@@ -14,6 +14,7 @@
         <div *ngFor='let y of displayimgAndTitle| async'>
             <hr>
             <p class='score'>You just caught a pokémon!</p>
+            <p class='score'>{{y.title}}</p>
             <img src="{{y.url}}">
             <hr>
         </div>
