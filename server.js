@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = 8000;
 app.use(express.static(__dirname + '/public/dist/public'));
@@ -7,7 +8,7 @@ const io = require('socket.io')(server);
 
 ////
 app.all('*', (req, res) => {
-    res.sendFile(__dirname + '/public/dist/public/index.html');
+    res.sendFile(path.resolve("./public/dist/public/index.html"))
 });
 /////////以下是变量///////
 let userscore = {};

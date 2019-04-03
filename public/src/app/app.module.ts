@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 //this two line are for socket.io
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://18.191.217.211', options: {} };
+const config: SocketIoConfig = { url: 'http://18.191.217.211:8000', options: {} };
 //
 import { NgModule } from '@angular/core';
 
