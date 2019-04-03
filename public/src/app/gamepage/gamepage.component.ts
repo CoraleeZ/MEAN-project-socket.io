@@ -123,7 +123,7 @@ export class GamepageComponent implements OnInit {
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 4;
     }
-    this.pokemon.img = './assets/images/'+this.pokemon.char+'/walk-mirror/1.png';
+    this.pokemon.img = 'url(./assets/images/'+this.pokemon.char+'/walk-mirror/1.png)center / contain';
     this.drawPokemon();
     setInterval(this.gravity, 75);
     ///12秒自动换地图
@@ -135,7 +135,7 @@ export class GamepageComponent implements OnInit {
     blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/mountain-map.png) center / 70%",
     blockUrl:"url(../../assets/images/ground.jpg) center / cover"}, {bgUrl:"url(../../assets/images/forest.png) center / 100%",
     blockUrl:"url(../../assets/images/ground.jpg) center / cover"}, {bgUrl:"url(../../assets/images/space.png) center / 100%",
-    blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/candy.png) center / 110%",
+    blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/candy.png) center / cover",
     blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}]
 
     let chosen = Math.floor(Math.random()*possible.length);
@@ -192,7 +192,7 @@ export class GamepageComponent implements OnInit {
           this.pokemon.frame = 1;
         };
         this.pokemon.x--;
-        this.pokemon.img = './assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png';
+        this.pokemon.img = 'url(./assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png)center/contain';
       };
       this.drawPokemon();
     };
@@ -208,7 +208,7 @@ export class GamepageComponent implements OnInit {
            this.pokemon.frame = 1;
         };
         this.pokemon.x++;
-        this.pokemon.img = './assets/images/'+this.pokemon.char+'/walk-mirror/' + this.pokemon.frame + '.png';
+        this.pokemon.img = 'url(./assets/images/'+this.pokemon.char+'/walk-mirror/' + this.pokemon.frame + '.png) center / contain';
       };
       this.drawPokemon();
     };
@@ -218,10 +218,10 @@ export class GamepageComponent implements OnInit {
       this.pokemon.frame = 1;
       let count = 0;
       if (this.pokemon.lastDir == "left") {
-        var spriteDir = './assets/images/'+this.pokemon.char+'/jump-cycle/';
+        var spriteDir = 'url(./assets/images/'+this.pokemon.char+'/jump-cycle/';
       }
       else {
-        var spriteDir = './assets/images/'+this.pokemon.char+'/jump-mirror/';
+        var spriteDir = 'url(./assets/images/'+this.pokemon.char+'/jump-mirror/';
       };
       let jump = () => {    
         if (this.pokemon.y>0 && this.pokemon.x<31 && this.pokemon.x>=0 && this.world[this.pokemon.y-1][this.pokemon.x]==0){    
@@ -232,7 +232,7 @@ export class GamepageComponent implements OnInit {
           else if (this.pokemon.frame < this.pokemon.jumpCycle){
             this.pokemon.frame += 1;
           };
-          this.pokemon.img = spriteDir + this.pokemon.frame + '.png';
+          this.pokemon.img = spriteDir + this.pokemon.frame + '.png)center / contain';
           this.pokemon.y-= 1;
           this.drawPokemon();
           if (count < 3){
