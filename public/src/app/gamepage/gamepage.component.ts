@@ -123,7 +123,7 @@ export class GamepageComponent implements OnInit {
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 4;
     }
-    this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/1.jpg)center / contain';
+    this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/1.png)center / contain';
     this.drawPokemon();
     setInterval(this.gravity, 75);
     ///12秒自动换地图
@@ -193,6 +193,7 @@ export class GamepageComponent implements OnInit {
         };
         this.pokemon.x--;
         this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png) center / contain';
+        console.log(this.pokemon.img);
       };
       this.drawPokemon();
     };
@@ -209,6 +210,7 @@ export class GamepageComponent implements OnInit {
         };
         this.pokemon.x++;
         this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/' + this.pokemon.frame + '.png) center / contain';
+        console.log(this.pokemon.img);
       };
       this.drawPokemon();
     };
@@ -233,6 +235,7 @@ export class GamepageComponent implements OnInit {
             this.pokemon.frame += 1;
           };
           this.pokemon.img = spriteDir + this.pokemon.frame + '.png) center / contain';
+          console.log(this.pokemon.img);
           this.pokemon.y-= 1;
           this.drawPokemon();
           if (count < 3){
