@@ -21,11 +21,11 @@
         <p class='score'>Best hunter:</p>
         <p class='topfive' *ngFor='let s of topfive | async'>{{s.name}} ---- {{s.score}}</p>
     </div>
-    <img *ngFor='let h of gamersposition | async' class='pokemon' [ngStyle]="{         
+    <div *ngFor='let h of gamersposition | async' class='pokemon' [ngStyle]="{         
         'top.px': h.top,
         'left.px': h.left,
         'background':h.img
-      }">
+      }"></div>
 
 </div>
 <!-- src='{{h.img}}' -->
