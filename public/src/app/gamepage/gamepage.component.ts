@@ -192,7 +192,7 @@ export class GamepageComponent implements OnInit {
           this.pokemon.frame = 1;
         };
         this.pokemon.x--;
-        this.pokemon.img = 'url(./assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png)center/contain';
+        this.pokemon.img = 'url(./assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png) center / contain';
       };
       this.drawPokemon();
     };
@@ -232,7 +232,7 @@ export class GamepageComponent implements OnInit {
           else if (this.pokemon.frame < this.pokemon.jumpCycle){
             this.pokemon.frame += 1;
           };
-          this.pokemon.img = spriteDir + this.pokemon.frame + '.png)center / contain';
+          this.pokemon.img = spriteDir + this.pokemon.frame + '.png) center / contain';
           this.pokemon.y-= 1;
           this.drawPokemon();
           if (count < 3){
