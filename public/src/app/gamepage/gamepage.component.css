@@ -119,6 +119,14 @@
     font-family: sans-serif;
 }
 
+.contact {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-left: 50px;
+    margin-top: 6px;
+}
+
 .a {
     background-image: url(../../assets/images/blocks/a.gif);
 }

@@ -59,3 +59,11 @@ label {
     display: inline-block;
     padding: 10px;
 }
+
+.contact {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-left: 50px;
+    margin-top: 6px;
+}
