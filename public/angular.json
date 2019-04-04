@@ -21,7 +21,10 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "src/assets/images"
+                            "src/assets/Meowth",
+                            "src/assets/Pikachu",
+                            "src/assets/Squirtle",
+                            "src/assets/Teddiursa"
                         ],
                         "styles": [
                             "src/styles.css"
