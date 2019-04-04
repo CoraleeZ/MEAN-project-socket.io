@@ -21,10 +21,10 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/assets",
-                            "src/assets/Meowth",
-                            "src/assets/Pikachu",
-                            "src/assets/Squirtle",
-                            "src/assets/Teddiursa"
+                            "src/assets/images/Meowth",
+                            "src/assets/images/Pikachu",
+                            "src/assets/images/Squirtle",
+                            "src/assets/images/Teddiursa"
                         ],
                         "styles": [
                             "src/styles.css"
