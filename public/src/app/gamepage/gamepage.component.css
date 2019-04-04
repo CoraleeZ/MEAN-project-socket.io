@@ -124,7 +124,10 @@
     font-weight: 600;
     font-family: sans-serif;
     margin-left: 50px;
-    margin-top: 6px;
+    width: 600px;
+    margin-top: 8px;
+    display: inline-block;
+    line-height: 21px;
 }
 
 .a {
