@@ -124,7 +124,7 @@ export class GamepageComponent implements OnInit {
       this.pokemon.jumpCycle = 4;
     }
     // this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/1.png)center / contain';
-    this.pokemon.img = 'url(../../assets/images/1.png) center / contain';
+    this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_1.png) center / contain';
     this.drawPokemon();
     setInterval(this.gravity, 75);
     ///12秒自动换地图
@@ -193,7 +193,7 @@ export class GamepageComponent implements OnInit {
           this.pokemon.frame = 1;
         };
         this.pokemon.x--;
-        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-cycle/' + this.pokemon.frame + '.png) center / contain';
+        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-cycle_' + this.pokemon.frame + '.png) center / contain';
         console.log(this.pokemon.img);
       };
       this.drawPokemon();
@@ -210,7 +210,7 @@ export class GamepageComponent implements OnInit {
            this.pokemon.frame = 1;
         };
         this.pokemon.x++;
-        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/' + this.pokemon.frame + '.png) center / contain';
+        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_' + this.pokemon.frame + '.png) center / contain';
         console.log(this.pokemon.img);
       };
       this.drawPokemon();
@@ -221,10 +221,10 @@ export class GamepageComponent implements OnInit {
       this.pokemon.frame = 1;
       let count = 0;
       if (this.pokemon.lastDir == "left") {
-        var spriteDir = 'url(../../assets/images/'+this.pokemon.char+'/jump-cycle/';
+        var spriteDir = 'url(../../assets/images/'+this.pokemon.char+'_jump-cycle_';
       }
       else {
-        var spriteDir = 'url(../../assets/images/'+this.pokemon.char+'/jump-mirror/';
+        var spriteDir = 'url(../../assets/images/'+this.pokemon.char+'_jump-mirror_';
       };
       let jump = () => {    
         if (this.pokemon.y>0 && this.pokemon.x<31 && this.pokemon.x>=0 && this.world[this.pokemon.y-1][this.pokemon.x]==0){    
