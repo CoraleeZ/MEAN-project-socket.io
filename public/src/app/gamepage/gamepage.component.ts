@@ -110,21 +110,33 @@ export class GamepageComponent implements OnInit {
     if (this.pokemon.char == "Pikachu"){
       this.pokemon.walkCycle = 6;
       this.pokemon.jumpCycle = 3;
+      // console.log("choes p");
+      // console.log(this.pokemon.jumpCycle);
+      // console.log(this.pokemon.walkCycle);  
     }
     else if (this.pokemon.char == "Squirtle"){
       this.pokemon.walkCycle = 6;
       this.pokemon.jumpCycle = 4;
+      // console.log("choes S");
+      // console.log(this.pokemon.jumpCycle);
+      // console.log(this.pokemon.walkCycle);  
     }
     else if (this.pokemon.char == "Teddiursa"){
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 3;
+      // console.log("choes T");
+      // console.log(this.pokemon.jumpCycle);
+      // console.log(this.pokemon.walkCycle);  
     }
     else if (this.pokemon.char == "Meowth") {
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 4;
+      // console.log("choes M");
+      // console.log(this.pokemon.jumpCycle);
+      // console.log(this.pokemon.walkCycle);      
     }
     // this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/1.png)center / contain';
-    this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_1.png) center / contain';
+    this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_1.png)no-repeat center / contain';
     this.drawPokemon();
     setInterval(this.gravity, 75);
     ///12秒自动换地图
@@ -188,12 +200,14 @@ export class GamepageComponent implements OnInit {
         this.pokemon.lastDir = "left";
         if (this.pokemon.frame < this.pokemon.walkCycle) {
           this.pokemon.frame += 1;
+          console.log(this.pokemon.frame);
         }
         else {
           this.pokemon.frame = 1;
         };
         this.pokemon.x--;
-        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-cycle_' + this.pokemon.frame + '.png) center / contain';
+        console.log(this.pokemon.frame);
+        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-cycle_' + this.pokemon.frame + '.png)no-repeat center / contain';
         console.log(this.pokemon.img);
       };
       this.drawPokemon();
@@ -205,12 +219,14 @@ export class GamepageComponent implements OnInit {
         this.pokemon.lastDir = "right";
         if (this.pokemon.frame < this.pokemon.walkCycle) {
           this.pokemon.frame += 1;
+          console.log(this.pokemon.frame);
         }
         else {
            this.pokemon.frame = 1;
         };
         this.pokemon.x++;
-        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_' + this.pokemon.frame + '.png) center / contain';
+        console.log(this.pokemon.frame);
+        this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_' + this.pokemon.frame + '.png)no-repeat center / contain';
         console.log(this.pokemon.img);
       };
       this.drawPokemon();
@@ -234,8 +250,10 @@ export class GamepageComponent implements OnInit {
           }
           else if (this.pokemon.frame < this.pokemon.jumpCycle){
             this.pokemon.frame += 1;
+            console.log(this.pokemon.frame);
           };
-          this.pokemon.img = spriteDir + this.pokemon.frame + '.png) center / contain';
+          console.log(this.pokemon.frame);
+          this.pokemon.img = spriteDir + this.pokemon.frame + '.png)no-repeat center / contain';
           console.log(this.pokemon.img);
           this.pokemon.y-= 1;
           this.drawPokemon();
