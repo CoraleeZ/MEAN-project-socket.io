@@ -107,19 +107,19 @@ export class GamepageComponent implements OnInit {
       this.boxinfo=data;
     });
     this.worldnew=this._gamepage.worldnew;
-    if (this.pokemon.char == "pikachu"){
+    if (this.pokemon.char == "Pikachu"){
       this.pokemon.walkCycle = 6;
       this.pokemon.jumpCycle = 3;
     }
-    else if (this.pokemon.char == "squirtle"){
+    else if (this.pokemon.char == "Squirtle"){
       this.pokemon.walkCycle = 6;
       this.pokemon.jumpCycle = 4;
     }
-    else if (this.pokemon.char == "teddiursa"){
+    else if (this.pokemon.char == "Teddiursa"){
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 3;
     }
-    else if (this.pokemon.char == "meowth") {
+    else if (this.pokemon.char == "Meowth") {
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 4;
     }
