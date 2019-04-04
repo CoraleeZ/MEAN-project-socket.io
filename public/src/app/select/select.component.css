@@ -15,6 +15,10 @@ button {
     background: rgba(0, 0, 0, 0.5);
 }
 
+#usernameInput {
+    text-align: center;
+}
+
 #labelForusername {
     color: white;
     font-size: 30px;
