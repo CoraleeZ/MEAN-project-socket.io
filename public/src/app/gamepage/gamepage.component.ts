@@ -148,7 +148,7 @@ export class GamepageComponent implements OnInit {
     blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/mountain-map.png) center / 70%",
     blockUrl:"url(../../assets/images/ground.jpg) center / cover"}, {bgUrl:"url(../../assets/images/forest.png) center / 100%",
     blockUrl:"url(../../assets/images/ground.jpg) center / cover"}, {bgUrl:"url(../../assets/images/space.png) center / 100%",
-    blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/candy.png) center / cover",
+    blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}, {bgUrl:"url(../../assets/images/candy.jpg) center / cover",
     blockUrl:"url(../../assets/images/cloud-platform-sq.png) center / cover"}]
 
     let chosen = Math.floor(Math.random()*possible.length);
