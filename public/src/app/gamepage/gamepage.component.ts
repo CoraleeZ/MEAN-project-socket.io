@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------------------------------------
+// <copyright file="gamepage.component.ts" >
+//     Copyright (p) Coralee_Z All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------------------------------------
+
 import { Component, OnInit, OnDestroy,HostBinding, HostListener} from '@angular/core';
 import { HttpService } from '../http.service'
 import { generate, Observable } from 'rxjs';
@@ -101,7 +107,6 @@ export class GamepageComponent implements OnInit {
     this._gamepage.world.subscribe(data=>{
       this.world=data;
     });
-    // this.display=this._gamepage.display;
        // this.drawworld();
     this._gamepage.boxinfo.subscribe(data=>{
       this.boxinfo=data;
@@ -109,33 +114,20 @@ export class GamepageComponent implements OnInit {
     this.worldnew=this._gamepage.worldnew;
     if (this.pokemon.char == "Pikachu"){
       this.pokemon.walkCycle = 6;
-      this.pokemon.jumpCycle = 3;
-      // console.log("choes p");
-      // console.log(this.pokemon.jumpCycle);
-      // console.log(this.pokemon.walkCycle);  
+      this.pokemon.jumpCycle = 3; 
     }
     else if (this.pokemon.char == "Squirtle"){
       this.pokemon.walkCycle = 6;
       this.pokemon.jumpCycle = 4;
-      // console.log("choes S");
-      // console.log(this.pokemon.jumpCycle);
-      // console.log(this.pokemon.walkCycle);  
     }
     else if (this.pokemon.char == "Teddiursa"){
       this.pokemon.walkCycle = 8;
       this.pokemon.jumpCycle = 3;
-      // console.log("choes T");
-      // console.log(this.pokemon.jumpCycle);
-      // console.log(this.pokemon.walkCycle);  
     }
     else if (this.pokemon.char == "Meowth") {
       this.pokemon.walkCycle = 8;
-      this.pokemon.jumpCycle = 4;
-      // console.log("choes M");
-      // console.log(this.pokemon.jumpCycle);
-      // console.log(this.pokemon.walkCycle);      
+      this.pokemon.jumpCycle = 4;    
     }
-    // this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'/walk-mirror/1.png)center / contain';
     this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_1.png)no-repeat center / contain';
     this.drawPokemon();
     setInterval(this.gravity, 75);
@@ -153,9 +145,7 @@ export class GamepageComponent implements OnInit {
 
     let chosen = Math.floor(Math.random()*possible.length);
     this.mapBg.style.background = possible[chosen].bgUrl;
-    console.log(this.mapBg.style.background);
-    this.mapBl.style.background = possible[chosen].blockUrl;  
-    console.log(this.mapBl.style.background);
+    this.mapBl.style.background = possible[chosen].blockUrl; 
   }
 
 
@@ -200,15 +190,12 @@ export class GamepageComponent implements OnInit {
         this.pokemon.lastDir = "left";
         if (this.pokemon.frame < this.pokemon.walkCycle) {
           this.pokemon.frame += 1;
-          console.log(this.pokemon.frame);
         }
         else {
           this.pokemon.frame = 1;
         };
         this.pokemon.x--;
-        console.log(this.pokemon.frame);
         this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-cycle_' + this.pokemon.frame + '.png)no-repeat center / contain';
-        console.log(this.pokemon.img);
       };
       this.drawPokemon();
     };
@@ -219,21 +206,17 @@ export class GamepageComponent implements OnInit {
         this.pokemon.lastDir = "right";
         if (this.pokemon.frame < this.pokemon.walkCycle) {
           this.pokemon.frame += 1;
-          console.log(this.pokemon.frame);
         }
         else {
            this.pokemon.frame = 1;
         };
         this.pokemon.x++;
-        console.log(this.pokemon.frame);
         this.pokemon.img = 'url(../../assets/images/'+this.pokemon.char+'_walk-mirror_' + this.pokemon.frame + '.png)no-repeat center / contain';
-        console.log(this.pokemon.img);
       };
       this.drawPokemon();
     };
       
     if (e.keyCode == 38) {
-      // console.log('trigger a key event jump:',this.pokemon);
       this.pokemon.frame = 1;
       let count = 0;
       if (this.pokemon.lastDir == "left") {
@@ -250,11 +233,8 @@ export class GamepageComponent implements OnInit {
           }
           else if (this.pokemon.frame < this.pokemon.jumpCycle){
             this.pokemon.frame += 1;
-            console.log(this.pokemon.frame);
           };
-          console.log(this.pokemon.frame);
           this.pokemon.img = spriteDir + this.pokemon.frame + '.png)no-repeat center / contain';
-          console.log(this.pokemon.img);
           this.pokemon.y-= 1;
           this.drawPokemon();
           if (count < 3){
@@ -296,7 +276,6 @@ export class GamepageComponent implements OnInit {
       };
       jump();
     };
-    // console.log('actioncode:', this.pokemon.actionCode)
   };
 
 

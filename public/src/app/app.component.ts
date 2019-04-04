@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------------------------------------
+// <copyright file="app.component.ts" >
+//     Copyright (p) Coralee_Z All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------------------------------------
+
 import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import { HttpService } from './http.service'
 import { GamepageComponent } from './gamepage/gamepage.component';

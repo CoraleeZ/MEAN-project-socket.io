@@ -1,3 +1,9 @@
+//------------------------------------------------------------------------------------------------------------
+// <copyright file="server.js" >
+//     Copyright (p) Coralee_Z All rights reserved.
+// </copyright>
+//------------------------------------------------------------------------------------------------------------
+
 const express = require('express');
 const path = require('path');
 const app = express();
