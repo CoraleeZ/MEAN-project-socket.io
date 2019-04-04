@@ -7,3 +7,11 @@ img {
 html {
     background: rgba(241, 6, 143, 0.06);
 }
+
+.contact {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: sans-serif;
+    margin-left: 50px;
+    margin-top: 6px;
+}
